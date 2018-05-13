@@ -84,20 +84,115 @@ namespace Primzahlen_Fermat_Forms
         {
             BigInteger bigErgebnis;
 
-            //Vorselektion nach Liste:
+            #region Vorselektion nach Liste *************************************************
             if (bigZahl == 0 || bigZahl == 1)
                 return false;
-
+            // Die ersten Primzahlen nach Liste
             if (bigZahl == 2)
                 return true;
-
+            if (bigZahl == 3)
+                return true;
             if (bigZahl == 5)
                 return true;
-
-            //Vorselektion mit Modulo, gerade Zahlen und 5 am Schluss Raus:
-            if ((bigZahl % 2) == 0 || bigZahl % 5 == 0)
+            if (bigZahl == 7)
+                return true;
+            if (bigZahl == 11)
+                return true;
+            if (bigZahl == 13)
+                return true;
+            if (bigZahl == 17)
+                return true;
+            if (bigZahl == 19)
+                return true;
+            if (bigZahl == 23)
+                return true;
+            if (bigZahl == 29)
+                return true;
+            if (bigZahl == 31)
+                return true;
+            if (bigZahl == 37)
+                return true;
+            if (bigZahl == 41)
+                return true;
+            if (bigZahl == 43)
+                return true;
+            if (bigZahl == 47)
+                return true;
+            if (bigZahl == 53)
+                return true;
+            if (bigZahl == 59)
+                return true;
+            if (bigZahl == 61)
+                return true;
+            if (bigZahl == 67)
+                return true;
+            if (bigZahl == 71)
+                return true;
+            if (bigZahl == 73)
+                return true;
+            if (bigZahl == 79)
+                return true;
+            if (bigZahl == 83)
+                return true;
+            if (bigZahl == 89)
+                return true;
+            if (bigZahl == 97)
+                return true;
+            // Vorselektion mit Modulo, brutale Beschleunigung!!
+            // Alles was vorher mit == muss nochmals mit % Ergänzt werden.
+            if ((bigZahl % 2) == 0)
                 return false;
-
+            if ((bigZahl % 3) == 0)
+                return false;
+            if ((bigZahl % 5) == 0)
+                return false;
+            if ((bigZahl % 7) == 0)
+                return false;
+            if ((bigZahl % 11) == 0)
+                return false;
+            if ((bigZahl % 13) == 0)
+                return false;
+            if ((bigZahl % 17) == 0)
+                return false;
+            if ((bigZahl % 19) == 0)
+                return false;
+            if ((bigZahl % 23) == 0)
+                return false;
+            if ((bigZahl % 29) == 0)
+                return false;
+            if ((bigZahl % 31) == 0)
+                return false;
+            if ((bigZahl % 37) == 0)
+                return false;
+            if ((bigZahl % 41) == 0)
+                return false;
+            if ((bigZahl % 43) == 0)
+                return false;
+            if ((bigZahl % 47) == 0)
+                return false;
+            if ((bigZahl % 53) == 0)
+                return false;
+            if ((bigZahl % 59) == 0)
+                return false;
+            if ((bigZahl % 61) == 0)
+                return false;
+            if ((bigZahl % 67) == 0)
+                return false;
+            if ((bigZahl % 71) == 0)
+                return false;
+            if ((bigZahl % 73) == 0)
+                return false;
+            if ((bigZahl % 79) == 0)
+                return false;
+            if ((bigZahl % 83) == 0)
+                return false;
+            if ((bigZahl % 89) == 0)
+                return false;
+            if ((bigZahl % 97) == 0)
+                return false;
+            //Ende Liste****************************************************************
+            #endregion
+            
             //Beliebig viele Durchläufe Angefangen mit Basis 2 bis letzteBasis;
             for (int i = 2; i <= letzteBasis; i++)
             {
@@ -113,8 +208,10 @@ namespace Primzahlen_Fermat_Forms
             }
             return true;
         }
+
+        #region Info vom Konsolen Program übernommen:
         /*   
-                Info vom Konsolen Program übernommen:
+                
 
                 "   Basis?\n\n" +
                 "   Es werden alle bis zur letzten gerechnet.\n" +
@@ -132,5 +229,6 @@ namespace Primzahlen_Fermat_Forms
                 progressBar1.Invoke(new Action(() => progressBar1.Value = (p1 / Gesamt_Bereich) * 1000));
       
          */
+        #endregion
     }
 }

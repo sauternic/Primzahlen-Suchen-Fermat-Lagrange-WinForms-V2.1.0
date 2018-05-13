@@ -210,7 +210,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Primzahlen Suchen nach Fermat";
+            this.Text = "Primzahlen Suchen nach Fermat   V2.0.0";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
