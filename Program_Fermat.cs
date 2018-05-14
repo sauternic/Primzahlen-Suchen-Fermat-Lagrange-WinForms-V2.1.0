@@ -138,6 +138,26 @@ namespace Primzahlen_Fermat_Forms
                 return true;
             if (bigZahl == 97)
                 return true;
+            if (bigZahl == 101)
+                return true;
+            if (bigZahl == 103)
+                return true;
+            if (bigZahl == 107)
+                return true;
+            if (bigZahl == 109)
+                return true;
+            if (bigZahl == 113)
+                return true;
+            if (bigZahl == 127)
+                return true;
+            if (bigZahl == 131)
+                return true;
+            if (bigZahl == 137)
+                return true;
+            if (bigZahl == 139)
+                return true;
+            if (bigZahl == 149)
+                return true;
             // Vorselektion mit Modulo, brutale Beschleunigung!!
             // Alles was vorher mit == muss nochmals mit % Ergänzt werden.
             if ((bigZahl % 2) == 0)
@@ -190,9 +210,29 @@ namespace Primzahlen_Fermat_Forms
                 return false;
             if ((bigZahl % 97) == 0)
                 return false;
+            if ((bigZahl % 101) == 0)
+                return false;
+            if ((bigZahl % 103) == 0)
+                return false;
+            if ((bigZahl % 107) == 0)
+                return false;
+            if ((bigZahl % 109) == 0)
+                return false;
+            if ((bigZahl % 113) == 0)
+                return false;
+            if ((bigZahl % 127) == 0)
+                return false;
+            if ((bigZahl % 131) == 0)
+                return false;
+            if ((bigZahl % 137) == 0)
+                return false;
+            if ((bigZahl % 139) == 0)
+                return false;
+            if ((bigZahl % 149) == 0)
+                return false;
             //Ende Liste****************************************************************
             #endregion
-            
+
             //Beliebig viele Durchläufe Angefangen mit Basis 2 bis letzteBasis;
             for (int i = 2; i <= letzteBasis; i++)
             {
