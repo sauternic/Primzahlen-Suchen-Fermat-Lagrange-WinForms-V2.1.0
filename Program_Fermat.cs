@@ -52,9 +52,27 @@ namespace Primzahlen_Fermat_Forms
             {
                 s.Start();
 
-                // Primzahlen Engine nach Fermat! :)))
-                if (!IstPrimzahlFermat(anfang, letzteBasis))
-                    continue;
+
+                //Auswählen durch Ankreuzen:
+                //Fermat
+                if (checkBox2.Checked)
+                {
+                    // Primzahlen Engine nach Fermat! :)))
+                    if (!IstPrimzahlFermat(anfang, letzteBasis))
+                        continue;
+                }
+
+
+                //Auswählen durch Ankreuzen:
+                //Lagrange
+                if (checkBox3.Checked)
+                {
+                    // Primzahlen Engine nach Fermat! :)))
+                    if (!IstPrimzahl_Lagrange(anfang, letzteBasis))
+                        continue;
+                }
+
+
 
                 s.Stop();
                 TimeSpan timeSpan = s.Elapsed;
@@ -249,26 +267,187 @@ namespace Primzahlen_Fermat_Forms
             return true;
         }
 
-        #region Info vom Konsolen Program übernommen:
-        /*   
-                
+        static bool IstPrimzahl_Lagrange(BigInteger bigZahl, int letzteBasis)
+        {
+            BigInteger bigErgebnis;
 
-                "   Basis?\n\n" +
-                "   Es werden alle bis zur letzten gerechnet.\n" +
-                "   Ausser wenn ein Ergebnis > 1 wird sofort Abgebrochen\n\n" +
-                "   Von Basis 2 bis Basis: ");
-        
-         
-                Versuch mit Progressbar:
+            #region Vorselektion nach Liste *************************************************
+            if (bigZahl == 0 || bigZahl == 1)
+                return false;
+            // Die ersten Primzahlen nach Liste
+            if (bigZahl == 2)
+                return true;
+            if (bigZahl == 3)
+                return true;
+            if (bigZahl == 5)
+                return true;
+            if (bigZahl == 7)
+                return true;
+            if (bigZahl == 11)
+                return true;
+            if (bigZahl == 13)
+                return true;
+            if (bigZahl == 17)
+                return true;
+            if (bigZahl == 19)
+                return true;
+            if (bigZahl == 23)
+                return true;
+            if (bigZahl == 29)
+                return true;
+            if (bigZahl == 31)
+                return true;
+            if (bigZahl == 37)
+                return true;
+            if (bigZahl == 41)
+                return true;
+            if (bigZahl == 43)
+                return true;
+            if (bigZahl == 47)
+                return true;
+            if (bigZahl == 53)
+                return true;
+            if (bigZahl == 59)
+                return true;
+            if (bigZahl == 61)
+                return true;
+            if (bigZahl == 67)
+                return true;
+            if (bigZahl == 71)
+                return true;
+            if (bigZahl == 73)
+                return true;
+            if (bigZahl == 79)
+                return true;
+            if (bigZahl == 83)
+                return true;
+            if (bigZahl == 89)
+                return true;
+            if (bigZahl == 97)
+                return true;
+            if (bigZahl == 101)
+                return true;
+            if (bigZahl == 103)
+                return true;
+            if (bigZahl == 107)
+                return true;
+            if (bigZahl == 109)
+                return true;
+            if (bigZahl == 113)
+                return true;
+            if (bigZahl == 127)
+                return true;
+            if (bigZahl == 131)
+                return true;
+            if (bigZahl == 137)
+                return true;
+            if (bigZahl == 139)
+                return true;
+            if (bigZahl == 149)
+                return true;
+            // Vorselektion mit Modulo, brutale Beschleunigung!!
+            // Alles was vorher mit == muss nochmals mit % Ergänzt werden.
+            if ((bigZahl % 2) == 0)
+                return false;
+            if ((bigZahl % 3) == 0)
+                return false;
+            if ((bigZahl % 5) == 0)
+                return false;
+            if ((bigZahl % 7) == 0)
+                return false;
+            if ((bigZahl % 11) == 0)
+                return false;
+            if ((bigZahl % 13) == 0)
+                return false;
+            if ((bigZahl % 17) == 0)
+                return false;
+            if ((bigZahl % 19) == 0)
+                return false;
+            if ((bigZahl % 23) == 0)
+                return false;
+            if ((bigZahl % 29) == 0)
+                return false;
+            if ((bigZahl % 31) == 0)
+                return false;
+            if ((bigZahl % 37) == 0)
+                return false;
+            if ((bigZahl % 41) == 0)
+                return false;
+            if ((bigZahl % 43) == 0)
+                return false;
+            if ((bigZahl % 47) == 0)
+                return false;
+            if ((bigZahl % 53) == 0)
+                return false;
+            if ((bigZahl % 59) == 0)
+                return false;
+            if ((bigZahl % 61) == 0)
+                return false;
+            if ((bigZahl % 67) == 0)
+                return false;
+            if ((bigZahl % 71) == 0)
+                return false;
+            if ((bigZahl % 73) == 0)
+                return false;
+            if ((bigZahl % 79) == 0)
+                return false;
+            if ((bigZahl % 83) == 0)
+                return false;
+            if ((bigZahl % 89) == 0)
+                return false;
+            if ((bigZahl % 97) == 0)
+                return false;
+            if ((bigZahl % 101) == 0)
+                return false;
+            if ((bigZahl % 103) == 0)
+                return false;
+            if ((bigZahl % 107) == 0)
+                return false;
+            if ((bigZahl % 109) == 0)
+                return false;
+            if ((bigZahl % 113) == 0)
+                return false;
+            if ((bigZahl % 127) == 0)
+                return false;
+            if ((bigZahl % 131) == 0)
+                return false;
+            if ((bigZahl % 137) == 0)
+                return false;
+            if ((bigZahl % 139) == 0)
+                return false;
+            if ((bigZahl % 149) == 0)
+                return false;
+            //Ende Liste****************************************************************
+            #endregion
 
-                //Vor for
-                int Gesamt_Bereich = (int)(ende - anfang);
-                
-                //Nach for Hand Schleife
-                int p1 = (int)((Gesamt_Bereich) - (ende - anfang));
-                progressBar1.Invoke(new Action(() => progressBar1.Value = (p1 / Gesamt_Bereich) * 1000));
-      
-         */
-        #endregion
+            //Beliebig viele Durchläufe Angefangen mit Basis 2 bis letzteBasis;
+            for (int i = 2; i <= letzteBasis; i++)
+            {
+                //Test nach Lagrange mit ModPow() Methode! :)))))
+                bigErgebnis = BigInteger.ModPow(i, (bigZahl - 1) / 2, bigZahl);
+
+
+                //Prim ist wenn Ergebnis 1 oder 0 oder Prim -1 ist: *******************
+                if (bigErgebnis == 1)
+                    continue;
+
+                if (bigErgebnis == 0)
+                    continue;
+
+                if (bigErgebnis == (bigZahl - 1))
+                {
+                    continue;
+                }
+                else
+                {
+                    //Nicht Prim weil keiner der obigen drei Werte!
+                    return false;
+                }
+                //********************************************************************
+
+            }
+            //Wenn alle Basis gerechnet worden sind:
+            return true;
+        }
     }
 }
