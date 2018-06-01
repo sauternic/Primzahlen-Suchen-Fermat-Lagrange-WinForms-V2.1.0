@@ -8,6 +8,8 @@ Dadurch höhere Sicherheit das Prim ist!
 
 ## Fast keine Grenzen der Stellen mehr!! :))))
 
+![Animation](https://github.com/sauternic/Primzahlen-Suchen-Fermat-Lagrange-WinForms-V2.1.0/blob/master/Fermat_Lagrange.gif)
+
 ### 1000 Stellen und Mehr kein Problem für dieses Programm! :)))
 
 **Motor des Programms ist die statische ModPow() Methode von der Klasse BigInteger.**
