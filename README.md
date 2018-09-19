@@ -19,6 +19,8 @@ Denn es werden alle Basise durchgerechnet bevor Prim Test bestanden wird
 (von 2 bis zur Angegebenen). Schon mit Basis 20 werden mit dem Lagrange Test  
 **starke fermatische Pseudoprimzahlen Erkannt und Verworfen!**
 
+[Website for primes ... up to 16 digits](https://sauternic.github.io/JavaScript_Primzahlen_Auflisten/)
+
 ------
 
 Für Mathematiker (Fermat):  
